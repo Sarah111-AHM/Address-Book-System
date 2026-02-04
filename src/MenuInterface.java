@@ -46,7 +46,7 @@ public class MenuInterface {
         System.out.print(prompt);
         String input = scanner.nextLine().trim();
         while (input.isEmpty()) {
-            System.out.print("Input cannot be empty. " + prompt);
+            System.out.print(" Input cannot be empty. " + prompt);
             input = scanner.nextLine().trim();
         }
         return input;
@@ -67,37 +67,9 @@ public class MenuInterface {
                 }
             }
             
-            System.out.println("  Invalid type. Using 'Other' as default.");
+            System.out.println(" Invalid type. Using 'Other' as default.");
             return "Other";
         }
     }
     
     public String getPhoneNumber() {
-        while (true) {
-            System.out.print("Enter phone number: ");
-            String number = scanner.nextLine().trim();
-            
-            if (validator.isValidPhoneNumber(number)) {
-                return number;
-            } else {
-                System.out.println("Invalid phone number format. Please enter digits only.");
-            }
-        }
-    }
-    
-    public boolean askYesNo(String question) {
-        System.out.print(question);
-        String response = scanner.nextLine().trim().toLowerCase();
-        return response.equals("yes") || response.equals("y") || response.equals("نعم");
-    }
-    
-    public void displaySearchResults(List<Contact> results, String searchType, String searchTerm) {
-        System.out.println("\n" + "─".repeat(40));
-        System.out.println("SEARCH RESULTS for " + searchType.toUpperCase() + ": '" + searchTerm + "'");
-        System.out.println("─".repeat(40));
-        
-        if (results.isEmpty()) {
-            System.out.println("No contacts found.");
-        } else {
-            System.out.println("Found " + results.size() + " contact(s):\n");
-            for (int i =
